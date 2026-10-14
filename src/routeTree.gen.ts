@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CatalogueRouteImport } from './routes/catalogue'
+import { Route as CosmetiquesRouteImport } from './routes/cosmetiques'
+import { Route as FemmesRouteImport } from './routes/femmes'
+import { Route as HommesRouteImport } from './routes/hommes'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CatalogueRoute = CatalogueRouteImport.update({
+  id: '/catalogue',
+  path: '/catalogue',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CosmetiquesRoute = CosmetiquesRouteImport.update({
+  id: '/cosmetiques',
+  path: '/cosmetiques',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FemmesRoute = FemmesRouteImport.update({
+  id: '/femmes',
+  path: '/femmes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HommesRoute = HommesRouteImport.update({
+  id: '/hommes',
+  path: '/hommes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/catalogue': typeof CatalogueRoute
+  '/cosmetiques': typeof CosmetiquesRoute
+  '/femmes': typeof FemmesRoute
+  '/hommes': typeof HommesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/catalogue': typeof CatalogueRoute
+  '/cosmetiques': typeof CosmetiquesRoute
+  '/femmes': typeof FemmesRoute
+  '/hommes': typeof HommesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/catalogue': typeof CatalogueRoute
+  '/cosmetiques': typeof CosmetiquesRoute
+  '/femmes': typeof FemmesRoute
+  '/hommes': typeof HommesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
+  id: '__root__' | '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CatalogueRoute: typeof CatalogueRoute
+  CosmetiquesRoute: typeof CosmetiquesRoute
+  FemmesRoute: typeof FemmesRoute
+  HommesRoute: typeof HommesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/catalogue': {
+      id: '/catalogue'
+      path: '/catalogue'
+      fullPath: '/catalogue'
+      preLoaderRoute: typeof CatalogueRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cosmetiques': {
+      id: '/cosmetiques'
+      path: '/cosmetiques'
+      fullPath: '/cosmetiques'
+      preLoaderRoute: typeof CosmetiquesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/femmes': {
+      id: '/femmes'
+      path: '/femmes'
+      fullPath: '/femmes'
+      preLoaderRoute: typeof FemmesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hommes': {
+      id: '/hommes'
+      path: '/hommes'
+      fullPath: '/hommes'
+      preLoaderRoute: typeof HommesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CatalogueRoute: CatalogueRoute,
+  CosmetiquesRoute: CosmetiquesRoute,
+  FemmesRoute: FemmesRoute,
+  HommesRoute: HommesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
