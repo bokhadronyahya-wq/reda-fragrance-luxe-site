@@ -25,5 +25,7 @@ a { color:inherit; text-decoration:none; } button,input,select { font:inherit; }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*:before,*:after { animation:none !important; transition:none !important; } }
 .rf-gold { color:var(--primary-foreground); background:var(--primary); }
 .rf-gold:hover { color:var(--primary-foreground); background:var(--gold-hover); }
+.product-order.rf-gold { background:var(--primary); color:var(--primary-foreground); }
+.product-order.rf-gold:hover { background:var(--gold-hover); }
 .product-dialog { background:var(--background); z-index:51; }
 @media(max-width:360px) { .hero h1 { font-size:65px; }.search-sort { flex-wrap:wrap; }.product-order { font-size:7px; } }

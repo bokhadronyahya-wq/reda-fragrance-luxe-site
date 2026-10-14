@@ -21,8 +21,8 @@ REDA FRAGRANCE — SITE AUTONOME
    Si une image est absente, une tuile « Image à venir » est affichée.
    Les chemins de présentation sont regroupés dans CONFIG en haut de js/main.js.
    Le logo est pour le moment un monogramme et le nom de marque en texte.
-   Pour afficher votre logo.png, remplacez le contenu du lien .wordmark dans les HTML
-   par une image ; le monogramme images/logo.svg sert aussi d’icône du navigateur.
+   Ajoutez images/logo.png pour remplacer automatiquement le nom en texte.
+   Le monogramme images/logo.svg sert aussi d’icône du navigateur.
 
 4. COMMANDES
    Les liens WhatsApp utilisent le numéro marocain +212 714 103 589

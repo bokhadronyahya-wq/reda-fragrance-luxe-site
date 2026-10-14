@@ -28,6 +28,10 @@ function bindImages() {
  });
 }
 document.querySelectorAll('[data-image]').forEach(img => { img.src=CONFIG[img.dataset.image]; });
+// Si votre logo.png existe, il remplace automatiquement le nom en texte.
+const logo=new Image();
+logo.onload=()=>{const mark=document.querySelector('.wordmark');logo.alt='Reda Fragrance';logo.loading='lazy';mark.replaceChildren(logo);};
+logo.src=CONFIG.logo;
 const page=document.body.dataset.page;
 const nav=document.querySelector('.main-nav');
 document.querySelector('.menu-toggle').addEventListener('click',e=>{

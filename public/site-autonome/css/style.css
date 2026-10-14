@@ -21,3 +21,11 @@ a { color:inherit; text-decoration:none; } button,input,select { font:inherit; }
 
 /* Style commun noir et or. Aucun outil de compilation nécessaire. */
 button,.btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; border:0; border-radius:3px; cursor:pointer; background:transparent; color:var(--foreground); padding:8px 16px; } button svg,.btn svg { width:16px; height:16px; flex-shrink:0; } .rf-gold { background:var(--primary); color:var(--background); } .large-button { display:inline-flex; align-items:center; justify-content:center; } .header-tools button,.floating-whatsapp { display:inline-flex; align-items:center; justify-content:center; }.header-tools button { width:36px; height:36px; padding:8px; }.menu-toggle { display:none; } .sr-only { position:absolute; width:1px; height:1px; padding:0; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; } .product-dialog { position:fixed; margin:auto; border:1px solid var(--border); color:var(--foreground); } .product-dialog:not([open]) { display:none; } .product-dialog::backdrop { background:var(--overlay); } #detail-body { display:grid; grid-template-columns:1fr 1fr; gap:30px; } .dialog-close { position:absolute; top:8px; right:10px; z-index:2; font-size:23px; background:var(--secondary); width:28px; height:28px; padding:0; } .dialog-description { color:var(--muted-foreground); font-size:12px; } @media(max-width:680px) { #detail-body { grid-template-columns:1fr; gap:10px; } .menu-toggle { display:inline-flex; } }
+/* États des commandes et contrôles autonomes. */
+.header-tools .menu-toggle { display:none; }
+.product-photo { display:block; padding:0; border:1px solid var(--border); }
+.product-name { display:block; padding:0; text-align:left; }
+.product-order.rf-gold { background:var(--primary); color:var(--primary-foreground); }
+.product-order.rf-gold:hover { background:var(--gold-hover); }
+.wordmark img { width:145px; height:48px; object-fit:contain; }
+@media(max-width:680px) { .header-tools .menu-toggle { display:inline-flex; } }
