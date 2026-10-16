@@ -1,4 +1,22 @@
-:root { --background: oklch(.145 0 0); --foreground: oklch(.94 .015 90); --primary: oklch(.735 .126 91); --primary-foreground: oklch(.145 0 0); --secondary: oklch(.178 0 0); --muted: oklch(.22 0 0); --muted-foreground: oklch(.68 .005 90); --accent: oklch(.25 .015 90); --border: oklch(.735 .126 91 / .2); --gold-hover: oklch(.83 .128 94); --gold-soft: oklch(.735 .126 91 / .09); --overlay: oklch(.1 0 0 / .8); --hero-fade: linear-gradient(90deg, oklch(.1 0 0 / .48), transparent 75%); --cta-gradient: linear-gradient(110deg, var(--background), var(--gold-soft), var(--background)); --float-shadow: 0 4px 25px oklch(.1 0 0 / .4); --radius: 4px; }
+:root {
+  /* ===== PALETTE REDA FRAGRANCE — modifiez les couleurs ici ===== */
+  --blanc: #FFFFFF;          /* fond principal */
+  --ivoire: #FAF8F3;         /* sections alternées */
+  --charbon: #1A1A1A;        /* titres et textes */
+  --gris: #6B6B6B;           /* textes secondaires */
+  --or: #C9A227;             /* or des boutons et filets */
+  --or-clair: #D4AF37;       /* dégradés dorés */
+  --or-profond: #A8861B;     /* survol des boutons */
+  --or-texte: #8A6D12;       /* or lisible pour petits textes sur blanc (contraste AA) */
+
+  --background: var(--blanc); --foreground: var(--charbon); --primary: var(--or-texte); --primary-foreground: var(--charbon);
+  --secondary: var(--ivoire); --muted: #EFEAE0; --muted-foreground: var(--gris); --accent: #F4EEDD;
+  --border: rgba(201, 162, 39, .38); --gold: var(--or); --gold-hover: var(--or-profond); --gold-soft: rgba(201, 162, 39, .1);
+  --overlay: rgba(255, 255, 255, .88);
+  --hero-fade: linear-gradient(90deg, rgba(255,255,255,.94), rgba(255,255,255,.7) 45%, transparent 80%);
+  --cta-gradient: linear-gradient(110deg, var(--blanc), rgba(212,175,55,.14), var(--ivoire));
+  --float-shadow: 0 6px 24px rgba(168, 134, 27, .25); --soft-shadow: 0 10px 30px -14px rgba(26, 26, 26, .18); --radius: 4px;
+}
 * { box-sizing: border-box; border-color: var(--border); letter-spacing: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: 100px; }
 body { margin:0; background:var(--background); color:var(--foreground); font-family:'Montserrat',sans-serif; font-size:13px; -webkit-font-smoothing:antialiased; }
@@ -29,3 +47,14 @@ button,.btn { display:inline-flex; align-items:center; justify-content:center; g
 .product-order.rf-gold:hover { background:var(--gold-hover); }
 .wordmark img { width:145px; height:48px; object-fit:contain; }
 @media(max-width:680px) { .header-tools .menu-toggle { display:inline-flex; } }
+
+/* ===== Ajustements thème blanc et or ===== */
+.rf-gold, .product-order.rf-gold { background: linear-gradient(135deg, var(--or-clair), var(--or)); color: var(--charbon); }
+.rf-gold:hover, .product-order.rf-gold:hover { background: var(--or-profond); color: var(--charbon); }
+.new-badge, .filter-tab.selected, .subcategory-tabs button.selected { color: var(--blanc); }
+.image-placeholder { background: var(--blanc); border: 1px solid var(--or); }
+.product-photo:hover, .collection-card:hover .collection-photo { box-shadow: var(--soft-shadow); }
+.site-header { box-shadow: 0 1px 0 var(--border); }
+.product-dialog { background: var(--blanc); box-shadow: var(--soft-shadow); }
+.dialog-close { color: var(--charbon); }
+@media(max-width:680px) { .hero-image { opacity: .55; } .hero-shade { background: linear-gradient(90deg, rgba(255,255,255,.92), rgba(255,255,255,.4)); } }

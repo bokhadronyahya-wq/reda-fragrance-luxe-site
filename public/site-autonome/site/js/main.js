@@ -1,15 +1,21 @@
-/* REDA FRAGRANCE — Configuration des images de présentation.
- * Remplacez les fichiers de ce dossier par vos propres photographies.
- * Les images produits sont définies exclusivement dans stock.js.
+/* REDA FRAGRANCE — Script principal du site.
+ * Les textes, liens et images de présentation viennent de reglages.js,
+ * et les produits de stock.js. Ces deux fichiers sont générés automatiquement
+ * depuis le panneau d’administration (/admin) : ne les modifiez pas à la main.
  */
+const R = Object.assign({
+  hero_titre: 'Reda Fragrance', whatsapp: '212714103589', instagram: 'https://www.instagram.com/reda_fragrences',
+  cosmetiques_intro: 'Soins délicats, essentiels de maquillage et accessoires : découvrez une autre facette de votre beauté.',
+  image_hero: 'images/hero.jpg', image_hommes: 'images/collection-hommes.jpg', image_femmes: 'images/collection-femmes.jpg',
+  image_cosmetiques: 'images/collection-cosmetiques.jpg', image_apropos: 'images/about.jpg'
+}, globalThis.REGLAGES || {});
 const CONFIG = {
-  hero: 'images/hero.jpg', hommes: 'images/collection-hommes.jpg',
-  femmes: 'images/collection-femmes.jpg', cosmetiques: 'images/collection-cosmetiques.jpg',
-  about: 'images/about.jpg', logo: 'images/logo.png'
+  hero: R.image_hero, hommes: R.image_hommes, femmes: R.image_femmes,
+  cosmetiques: R.image_cosmetiques, about: R.image_apropos, logo: 'images/logo.png'
 };
 const PRODUCTS = globalThis.PRODUCTS;
 const LABELS = { hommes: 'Hommes', femmes: 'Femmes', cosmetiques: 'Cosmétiques & Maquillage' };
-const WA = 'https://wa.me/212714103589';
+const WA = 'https://wa.me/' + String(R.whatsapp).replace(/\D/g, '');
 const escapeHTML = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const waLink = product => WA + '?text=' + encodeURIComponent('Bonjour Reda Fragrance, je suis intéressé(e) par : ' + product.nom);
 const money = value => new Intl.NumberFormat('fr-MA').format(value) + ' DH';
@@ -27,6 +33,16 @@ function bindImages() {
   }, { once:true });
  });
 }
+// Textes modifiables depuis l’administration.
+const setText = (key, html) => document.querySelectorAll('[data-text="' + key + '"]').forEach(el => { el.innerHTML = html; });
+if (globalThis.REGLAGES) {
+ const t = String(R.hero_titre || '').trim().split(/\s+/);
+ setText('hero_titre', escapeHTML(t[0] || '') + (t.length > 1 ? '<br><em>' + escapeHTML(t.slice(1).join(' ')) + '</em>' : '') + '<span class="hero-dot">.</span>');
+ ['hero_sous_titre', 'hero_description', 'apropos_titre'].forEach(k => R[k] && setText(k, escapeHTML(R[k])));
+ if (R.apropos_texte) setText('apropos_texte', String(R.apropos_texte).split(/\n\s*\n/).map(p => '<p>' + escapeHTML(p.trim()) + '</p>').join(''));
+}
+document.querySelectorAll('a[href*="wa.me/"]').forEach(a => { const q = a.href.split('?')[1]; a.href = WA + (q ? '?' + q : ''); });
+document.querySelectorAll('a[href*="instagram.com"]').forEach(a => { a.href = R.instagram; });
 document.querySelectorAll('[data-image]').forEach(img => { img.src=CONFIG[img.dataset.image]; });
 // Si votre logo.png existe, il remplace automatiquement le nom en texte.
 const logo=new Image();
@@ -60,7 +76,7 @@ function renderProducts() {
  document.getElementById('result-count').textContent=list.length+' produit'+(list.length!==1?'s':'');
  document.getElementById('catalogue-sections').innerHTML=['hommes','femmes','cosmetiques'].filter(c=>filter==='tous'||filter===c).map(c=>{
   const rows=list.filter(p=>p.categorie===c);
-  const heading=c==='cosmetiques'?`<div class="cosmetics-banner"><img src="${CONFIG.cosmetiques}" alt="Essentiels de maquillage noir et or" loading="lazy"><div><p class="eyebrow">LE RITUEL BEAUTÉ</p><h2>Cosmétiques & Maquillage</h2><p>Soins délicats, essentiels de maquillage et accessoires : découvrez une autre facette de votre beauté.</p></div></div><div class="subcategory-tabs" role="group" aria-label="Sous-catégories beauté">${['Tous','Soins visage','Maquillage','Soins corps','Accessoires'].map(s=>`<button class="btn ${s===sub?'selected':''}" data-sub="${s}">${s}</button>`).join('')}</div>`:`<div class="catalogue-section-title"><h2>${LABELS[c]}</h2><span>${rows.length} produits</span></div>`;
+  const heading=c==='cosmetiques'?`<div class="cosmetics-banner"><img src="${CONFIG.cosmetiques}" alt="Essentiels de maquillage noir et or" loading="lazy"><div><p class="eyebrow">LE RITUEL BEAUTÉ</p><h2>Cosmétiques & Maquillage</h2><p>${escapeHTML(R.cosmetiques_intro)}</p></div></div><div class="subcategory-tabs" role="group" aria-label="Sous-catégories beauté">${['Tous','Soins visage','Maquillage','Soins corps','Accessoires'].map(s=>`<button class="btn ${s===sub?'selected':''}" data-sub="${s}">${s}</button>`).join('')}</div>`:`<div class="catalogue-section-title"><h2>${LABELS[c]}</h2><span>${rows.length} produits</span></div>`;
   return '<section class="catalogue-section">'+heading+(rows.length?'<div class="product-grid">'+rows.map(card).join('')+'</div>':'<p class="empty-results">Aucun produit ne correspond à votre recherche.</p>')+'</section>';
  }).join('');bindImages();
 }
