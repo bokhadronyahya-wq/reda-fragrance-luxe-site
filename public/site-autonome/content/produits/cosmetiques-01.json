@@ -1,0 +1,16 @@
+{
+  "nom": "Rouge à lèvres 01",
+  "marque": "Reda Fragrance",
+  "categorie": "cosmetiques",
+  "sous_categorie": "Maquillage",
+  "taille": "3,5 g",
+  "prix": 95,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": true,
+  "nouveau": true,
+  "visible": true,
+  "description": "Un produit de démonstration à remplacer par la description de votre produit.",
+  "notes_olfactives": "",
+  "image": "images/products/cosmetiques-01.jpg"
+}

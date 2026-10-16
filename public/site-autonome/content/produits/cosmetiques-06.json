@@ -1,0 +1,16 @@
+{
+  "nom": "Crème visage 01",
+  "marque": "Reda Fragrance",
+  "categorie": "cosmetiques",
+  "sous_categorie": "Soins visage",
+  "taille": "30 ml",
+  "prix": 220,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": false,
+  "visible": true,
+  "description": "Un produit de démonstration à remplacer par la description de votre produit.",
+  "notes_olfactives": "",
+  "image": "images/products/cosmetiques-06.jpg"
+}

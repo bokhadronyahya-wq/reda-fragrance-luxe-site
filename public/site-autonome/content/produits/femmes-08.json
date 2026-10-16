@@ -1,0 +1,16 @@
+{
+  "nom": "Parfum Femme 08",
+  "marque": "Reda Fragrance",
+  "categorie": "femmes",
+  "sous_categorie": "",
+  "taille": "100 ml",
+  "prix": 750,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": false,
+  "visible": true,
+  "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
+  "notes_olfactives": "Bergamote · Accord floral · Bois ambrés",
+  "image": "images/products/femmes-08.jpg"
+}
