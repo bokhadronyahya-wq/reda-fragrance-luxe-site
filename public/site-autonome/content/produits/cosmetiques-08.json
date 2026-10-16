@@ -1,0 +1,16 @@
+{
+  "nom": "Trousse beauté 01",
+  "marque": "Reda Fragrance",
+  "categorie": "cosmetiques",
+  "sous_categorie": "Accessoires",
+  "taille": "1 pièce",
+  "prix": 270,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": false,
+  "visible": true,
+  "description": "Un produit de démonstration à remplacer par la description de votre produit.",
+  "notes_olfactives": "",
+  "image": "images/products/cosmetiques-08.jpg"
+}

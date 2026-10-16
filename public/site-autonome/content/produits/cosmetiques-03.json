@@ -1,0 +1,16 @@
+{
+  "nom": "Lait corps 01",
+  "marque": "Reda Fragrance",
+  "categorie": "cosmetiques",
+  "sous_categorie": "Soins corps",
+  "taille": "200 ml",
+  "prix": 145,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": true,
+  "visible": true,
+  "description": "Un produit de démonstration à remplacer par la description de votre produit.",
+  "notes_olfactives": "",
+  "image": "images/products/cosmetiques-03.jpg"
+}
