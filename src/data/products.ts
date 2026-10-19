@@ -7,7 +7,7 @@ export type Product = {
   nouveau: boolean; description: string; notesOlfactives?: string; image: string;
 };
 declare global { var PRODUCTS: Product[]; }
-export const products = globalThis.PRODUCTS;
+export const products: Product[] = globalThis.PRODUCTS ?? [];
 export const labels: Record<Category, string> = { hommes: 'Hommes', femmes: 'Femmes', cosmetiques: 'Cosmétiques & Maquillage' };
 export const whatsapp = (product?: Product) => `https://wa.me/212714103589${product ? '?text=' + encodeURIComponent(`Bonjour Reda Fragrance, je suis intéressé(e) par : ${product.nom}`) : ''}`;
 export const instagram = 'https://www.instagram.com/reda_fragrences';
