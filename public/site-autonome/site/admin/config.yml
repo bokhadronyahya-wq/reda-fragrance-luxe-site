@@ -6,7 +6,7 @@ backend:
   repo: RedaMohidi45/reda-fragrance   # compte GitHub / nom du dépôt
   branch: main
   # Connexion via le relais Vercel (dossier api/). Remplacez par votre adresse Vercel exacte.
-  base_url: https://VOTRE-SITE.vercel.app
+  base_url: https://reda-fragrance.vercel.app
   auth_endpoint: api/auth
   commit_messages:
     create: "Ajout : {{slug}}"
@@ -16,8 +16,8 @@ backend:
     deleteMedia: "Image supprimée : {{path}}"
 
 locale: fr
-site_url: https://redafragrance.netlify.app
-display_url: https://redafragrance.netlify.app
+site_url: https://reda-fragrance.vercel.app
+display_url: https://reda-fragrance.vercel.app
 media_folder: site/images/uploads
 public_folder: images/uploads
 

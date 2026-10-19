@@ -51,11 +51,11 @@ Les 24 produits actuels sont des exemples : remplacez-les ou masquez-les au fur 
 
 1. Dans Vercel, réglages du projet : **Root Directory** = le dossier qui contient `vercel.json`, `api/`, `site/`. Le fichier `vercel.json` règle le reste.
 2. Sur GitHub : **Settings → Developer settings → OAuth Apps → New OAuth App**
-   - Homepage URL : `https://VOTRE-SITE.vercel.app`
-   - Authorization callback URL : `https://VOTRE-SITE.vercel.app/api/callback`
+   - Homepage URL : `https://reda-fragrance.vercel.app`
+   - Authorization callback URL : `https://reda-fragrance.vercel.app/api/callback`
    Puis **Generate a new client secret**.
 3. Dans Vercel : *Settings → Environment Variables*, ajoutez
    - `OAUTH_GITHUB_CLIENT_ID` = le Client ID
    - `OAUTH_GITHUB_CLIENT_SECRET` = le Client secret
-4. Dans `site/admin/config.yml`, remplacez `https://VOTRE-SITE.vercel.app` par votre vraie adresse Vercel, et vérifiez que `repo:` correspond à `RedaMohidi45/<nom-du-dépôt>`.
-5. Redéployez, puis ouvrez `https://VOTRE-SITE.vercel.app/admin/` et cliquez sur **Se connecter avec GitHub**.
+4. Dans `site/admin/config.yml`, remplacez `https://reda-fragrance.vercel.app` par votre vraie adresse Vercel, et vérifiez que `repo:` correspond à `RedaMohidi45/<nom-du-dépôt>`.
+5. Redéployez, puis ouvrez `https://reda-fragrance.vercel.app/admin/` et cliquez sur **Se connecter avec GitHub**.
