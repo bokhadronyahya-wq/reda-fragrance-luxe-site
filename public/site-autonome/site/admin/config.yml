@@ -3,8 +3,11 @@
 # fournisseur OAuth GitHub de Netlify. Aucun secret n’est écrit ici.
 backend:
   name: github
-  repo: VOTRE-COMPTE-GITHUB/reda-fragrance   # à remplacer (voir GUIDE-PROPRIETAIRE.md)
+  repo: RedaMohidi45/reda-fragrance   # compte GitHub / nom du dépôt
   branch: main
+  # Connexion via le relais Vercel (dossier api/). Remplacez par votre adresse Vercel exacte.
+  base_url: https://VOTRE-SITE.vercel.app
+  auth_endpoint: api/auth
   commit_messages:
     create: "Ajout : {{slug}}"
     update: "Modification : {{slug}}"
