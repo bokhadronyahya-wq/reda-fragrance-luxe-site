@@ -1,0 +1,89 @@
+# REDA FRAGRANCE — Configuration du panneau d’administration (Decap CMS)
+# Ce panneau est servi par l’application : https://reda-fragrance.vercel.app/admin/
+# Connexion : compte GitHub ayant accès en écriture au dépôt, via le relais
+# /api/public/auth + /api/public/callback. Aucun secret n’est écrit ici :
+# OAUTH_GITHUB_CLIENT_ID et OAUTH_GITHUB_CLIENT_SECRET vivent dans Vercel.
+backend:
+  name: github
+  repo: bokhadronyahya-wq/reda-fragrance-luxe-site   # compte GitHub / nom du dépôt
+  branch: main
+  base_url: https://reda-fragrance.vercel.app
+  auth_endpoint: api/public/auth
+  commit_messages:
+    create: "Ajout : {{slug}}"
+    update: "Modification : {{slug}}"
+    delete: "Suppression : {{slug}}"
+    uploadMedia: "Image ajoutée : {{path}}"
+    deleteMedia: "Image supprimée : {{path}}"
+
+locale: fr
+site_url: https://reda-fragrance.vercel.app
+display_url: https://reda-fragrance.vercel.app
+media_folder: public/images/uploads
+public_folder: images/uploads
+
+collections:
+  - name: produits
+    label: Produits
+    label_singular: Produit
+    description: "Ajoutez, modifiez, masquez ou supprimez vos produits."
+    folder: public/site-autonome/content/produits
+    format: json
+    extension: json
+    create: true
+    delete: true
+    identifier_field: nom
+    slug: "{{slug}}"
+    summary: "{{nom}} — {{prix}} DH ({{categorie}})"
+    sortable_fields: [nom, prix, categorie]
+    view_filters:
+      - { label: Hommes, field: categorie, pattern: hommes }
+      - { label: Femmes, field: categorie, pattern: femmes }
+      - { label: Cosmétiques, field: categorie, pattern: cosmetiques }
+      - { label: Épuisés, field: en_stock, pattern: false }
+    fields:
+      - { label: Nom, name: nom, widget: string }
+      - { label: Marque, name: marque, widget: string, default: Reda Fragrance }
+      - label: Catégorie
+        name: categorie
+        widget: select
+        options:
+          - { label: Hommes, value: hommes }
+          - { label: Femmes, value: femmes }
+          - { label: "Cosmétiques & Maquillage", value: cosmetiques }
+      - label: Sous-catégorie (cosmétiques uniquement)
+        name: sous_categorie
+        widget: select
+        required: false
+        options: ["", "Soins visage", "Maquillage", "Soins corps", "Accessoires"]
+      - { label: "Taille (ex. 100 ml)", name: taille, widget: string }
+      - { label: Prix en DH, name: prix, widget: number, value_type: int, min: 0 }
+      - { label: En stock, name: en_stock, widget: boolean, default: true }
+      - { label: Quantité, name: quantite, widget: number, value_type: int, min: 0, default: 1 }
+      - { label: "Vedette (affiché sur l’accueil)", name: vedette, widget: boolean, default: false }
+      - { label: Nouveauté, name: nouveau, widget: boolean, default: false }
+      - { label: "Visible sur le site (décochez pour masquer)", name: visible, widget: boolean, default: true }
+      - { label: Description, name: description, widget: text }
+      - { label: Notes olfactives (parfums), name: notes_olfactives, widget: string, required: false }
+      - { label: Photo, name: image, widget: image, required: false }
+
+  - name: reglages
+    label: Réglages du site
+    files:
+      - name: reglages
+        label: Textes, liens et images
+        file: public/site-autonome/content/reglages.json
+        fields:
+          - { label: Titre de la bannière, name: hero_titre, widget: string }
+          - { label: Sous-titre de la bannière, name: hero_sous_titre, widget: string }
+          - { label: Texte court de la bannière, name: hero_description, widget: text }
+          - { label: Titre « À propos », name: apropos_titre, widget: string }
+          - { label: "Texte « À propos » (laissez une ligne vide entre deux paragraphes)", name: apropos_texte, widget: text }
+          - { label: Introduction de la section Cosmétiques, name: cosmetiques_intro, widget: text }
+          - { label: "Numéro WhatsApp au format international (ex. 212714103589)", name: whatsapp, widget: string, pattern: ["^[0-9]{9,15}$", "Chiffres uniquement, sans + ni espaces"] }
+          - { label: Lien Instagram, name: instagram, widget: string }
+          - { label: Image de la bannière, name: image_hero, widget: image }
+          - { label: Image collection Hommes, name: image_hommes, widget: image }
+          - { label: Image collection Femmes, name: image_femmes, widget: image }
+          - { label: Image collection Cosmétiques, name: image_cosmetiques, widget: image }
+          - { label: Image « À propos », name: image_apropos, widget: image }

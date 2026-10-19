@@ -14,6 +14,8 @@ import { Route as CatalogueRouteImport } from './routes/catalogue'
 import { Route as CosmetiquesRouteImport } from './routes/cosmetiques'
 import { Route as FemmesRouteImport } from './routes/femmes'
 import { Route as HommesRouteImport } from './routes/hommes'
+import { Route as ApiPublicAuthRouteImport } from './routes/api/public/auth'
+import { Route as ApiPublicCallbackRouteImport } from './routes/api/public/callback'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +42,16 @@ const HommesRoute = HommesRouteImport.update({
   path: '/hommes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicAuthRoute = ApiPublicAuthRouteImport.update({
+  id: '/api/public/auth',
+  path: '/api/public/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicCallbackRoute = ApiPublicCallbackRouteImport.update({
+  id: '/api/public/callback',
+  path: '/api/public/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +59,8 @@ export interface FileRoutesByFullPath {
   '/cosmetiques': typeof CosmetiquesRoute
   '/femmes': typeof FemmesRoute
   '/hommes': typeof HommesRoute
+  '/api/public/auth': typeof ApiPublicAuthRoute
+  '/api/public/callback': typeof ApiPublicCallbackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +68,8 @@ export interface FileRoutesByTo {
   '/cosmetiques': typeof CosmetiquesRoute
   '/femmes': typeof FemmesRoute
   '/hommes': typeof HommesRoute
+  '/api/public/auth': typeof ApiPublicAuthRoute
+  '/api/public/callback': typeof ApiPublicCallbackRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,13 +78,37 @@ export interface FileRoutesById {
   '/cosmetiques': typeof CosmetiquesRoute
   '/femmes': typeof FemmesRoute
   '/hommes': typeof HommesRoute
+  '/api/public/auth': typeof ApiPublicAuthRoute
+  '/api/public/callback': typeof ApiPublicCallbackRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
+  fullPaths:
+    | '/'
+    | '/catalogue'
+    | '/cosmetiques'
+    | '/femmes'
+    | '/hommes'
+    | '/api/public/auth'
+    | '/api/public/callback'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
-  id: '__root__' | '/' | '/catalogue' | '/cosmetiques' | '/femmes' | '/hommes'
+  to:
+    | '/'
+    | '/catalogue'
+    | '/cosmetiques'
+    | '/femmes'
+    | '/hommes'
+    | '/api/public/auth'
+    | '/api/public/callback'
+  id:
+    | '__root__'
+    | '/'
+    | '/catalogue'
+    | '/cosmetiques'
+    | '/femmes'
+    | '/hommes'
+    | '/api/public/auth'
+    | '/api/public/callback'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -77,6 +117,8 @@ export interface RootRouteChildren {
   CosmetiquesRoute: typeof CosmetiquesRoute
   FemmesRoute: typeof FemmesRoute
   HommesRoute: typeof HommesRoute
+  ApiPublicAuthRoute: typeof ApiPublicAuthRoute
+  ApiPublicCallbackRoute: typeof ApiPublicCallbackRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,6 +158,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HommesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/auth': {
+      id: '/api/public/auth'
+      path: '/api/public/auth'
+      fullPath: '/api/public/auth'
+      preLoaderRoute: typeof ApiPublicAuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/callback': {
+      id: '/api/public/callback'
+      path: '/api/public/callback'
+      fullPath: '/api/public/callback'
+      preLoaderRoute: typeof ApiPublicCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -125,6 +181,8 @@ const rootRouteChildren: RootRouteChildren = {
   CosmetiquesRoute: CosmetiquesRoute,
   FemmesRoute: FemmesRoute,
   HommesRoute: HommesRoute,
+  ApiPublicAuthRoute: ApiPublicAuthRoute,
+  ApiPublicCallbackRoute: ApiPublicCallbackRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
