@@ -11,9 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CatalogueRouteImport } from './routes/catalogue'
-import { Route as CosmetiquesRouteImport } from './routes/cosmetiques'
-import { Route as FemmesRouteImport } from './routes/femmes'
-import { Route as HommesRouteImport } from './routes/hommes'
+import { Route as CollectionSlugRouteImport } from './routes/collection.$slug'
+import { Route as ProduitIdRouteImport } from './routes/produit.$id'
 import { Route as ApiPublicAuthRouteImport } from './routes/api/public/auth'
 import { Route as ApiPublicCallbackRouteImport } from './routes/api/public/callback'
 
@@ -27,19 +26,14 @@ const CatalogueRoute = CatalogueRouteImport.update({
   path: '/catalogue',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CosmetiquesRoute = CosmetiquesRouteImport.update({
-  id: '/cosmetiques',
-  path: '/cosmetiques',
+const CollectionSlugRoute = CollectionSlugRouteImport.update({
+  id: '/collection/$slug',
+  path: '/collection/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const FemmesRoute = FemmesRouteImport.update({
-  id: '/femmes',
-  path: '/femmes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HommesRoute = HommesRouteImport.update({
-  id: '/hommes',
-  path: '/hommes',
+const ProduitIdRoute = ProduitIdRouteImport.update({
+  id: '/produit/$id',
+  path: '/produit/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicAuthRoute = ApiPublicAuthRouteImport.update({
@@ -56,18 +50,16 @@ const ApiPublicCallbackRoute = ApiPublicCallbackRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/catalogue': typeof CatalogueRoute
-  '/cosmetiques': typeof CosmetiquesRoute
-  '/femmes': typeof FemmesRoute
-  '/hommes': typeof HommesRoute
+  '/collection/$slug': typeof CollectionSlugRoute
+  '/produit/$id': typeof ProduitIdRoute
   '/api/public/auth': typeof ApiPublicAuthRoute
   '/api/public/callback': typeof ApiPublicCallbackRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/catalogue': typeof CatalogueRoute
-  '/cosmetiques': typeof CosmetiquesRoute
-  '/femmes': typeof FemmesRoute
-  '/hommes': typeof HommesRoute
+  '/collection/$slug': typeof CollectionSlugRoute
+  '/produit/$id': typeof ProduitIdRoute
   '/api/public/auth': typeof ApiPublicAuthRoute
   '/api/public/callback': typeof ApiPublicCallbackRoute
 }
@@ -75,9 +67,8 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/catalogue': typeof CatalogueRoute
-  '/cosmetiques': typeof CosmetiquesRoute
-  '/femmes': typeof FemmesRoute
-  '/hommes': typeof HommesRoute
+  '/collection/$slug': typeof CollectionSlugRoute
+  '/produit/$id': typeof ProduitIdRoute
   '/api/public/auth': typeof ApiPublicAuthRoute
   '/api/public/callback': typeof ApiPublicCallbackRoute
 }
@@ -86,27 +77,24 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/catalogue'
-    | '/cosmetiques'
-    | '/femmes'
-    | '/hommes'
+    | '/collection/$slug'
+    | '/produit/$id'
     | '/api/public/auth'
     | '/api/public/callback'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/catalogue'
-    | '/cosmetiques'
-    | '/femmes'
-    | '/hommes'
+    | '/collection/$slug'
+    | '/produit/$id'
     | '/api/public/auth'
     | '/api/public/callback'
   id:
     | '__root__'
     | '/'
     | '/catalogue'
-    | '/cosmetiques'
-    | '/femmes'
-    | '/hommes'
+    | '/collection/$slug'
+    | '/produit/$id'
     | '/api/public/auth'
     | '/api/public/callback'
   fileRoutesById: FileRoutesById
@@ -114,9 +102,8 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CatalogueRoute: typeof CatalogueRoute
-  CosmetiquesRoute: typeof CosmetiquesRoute
-  FemmesRoute: typeof FemmesRoute
-  HommesRoute: typeof HommesRoute
+  CollectionSlugRoute: typeof CollectionSlugRoute
+  ProduitIdRoute: typeof ProduitIdRoute
   ApiPublicAuthRoute: typeof ApiPublicAuthRoute
   ApiPublicCallbackRoute: typeof ApiPublicCallbackRoute
 }
@@ -137,25 +124,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CatalogueRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/cosmetiques': {
-      id: '/cosmetiques'
-      path: '/cosmetiques'
-      fullPath: '/cosmetiques'
-      preLoaderRoute: typeof CosmetiquesRouteImport
+    '/collection/$slug': {
+      id: '/collection/$slug'
+      path: '/collection/$slug'
+      fullPath: '/collection/$slug'
+      preLoaderRoute: typeof CollectionSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/femmes': {
-      id: '/femmes'
-      path: '/femmes'
-      fullPath: '/femmes'
-      preLoaderRoute: typeof FemmesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/hommes': {
-      id: '/hommes'
-      path: '/hommes'
-      fullPath: '/hommes'
-      preLoaderRoute: typeof HommesRouteImport
+    '/produit/$id': {
+      id: '/produit/$id'
+      path: '/produit/$id'
+      fullPath: '/produit/$id'
+      preLoaderRoute: typeof ProduitIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/auth': {
@@ -178,9 +158,8 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CatalogueRoute: CatalogueRoute,
-  CosmetiquesRoute: CosmetiquesRoute,
-  FemmesRoute: FemmesRoute,
-  HommesRoute: HommesRoute,
+  CollectionSlugRoute: CollectionSlugRoute,
+  ProduitIdRoute: ProduitIdRoute,
   ApiPublicAuthRoute: ApiPublicAuthRoute,
   ApiPublicCallbackRoute: ApiPublicCallbackRoute,
 }

@@ -1,8 +1,7 @@
 {
   "nom": "Parfum Homme 04",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sous_categorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 550,
   "en_stock": false,
@@ -12,5 +11,6 @@
   "visible": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notes_olfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-04.jpg"
+  "image": "images/products/hommes-04.jpg",
+  "galerie": []
 }

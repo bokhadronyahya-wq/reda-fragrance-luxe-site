@@ -1,18 +1,12 @@
-import hero from '@/assets/hero.jpg';
-import hommes from '@/assets/collection-hommes.jpg';
-import femmes from '@/assets/collection-femmes.jpg';
-import cosmetiques from '@/assets/collection-cosmetiques.jpg';
-import { reglages } from '@/data/products';
+import { reglages, type Category } from '@/data/products';
 
 // Les photos sont choisies depuis /admin (Réglages du site → Textes, liens et images).
-// Sans choix du propriétaire, on garde les visuels de démonstration livrés avec le site.
-const url = (path?: string) => (path ? '/' + String(path).replace(/^\/+/, '') : '');
+const url = (path?: string, fallback = '') => (path ? '/' + String(path).replace(/^\/+/, '') : fallback);
 
+export const SITE_URL = 'https://reda-fragrance.vercel.app';
 export const images = {
-  hero: url(reglages.image_hero) || hero,
-  hommes: url(reglages.image_hommes) || hommes,
-  femmes: url(reglages.image_femmes) || femmes,
-  cosmetiques: url(reglages.image_cosmetiques) || cosmetiques,
-  about: url(reglages.image_apropos) || femmes,
-  logo: '/images/logo.png',
+  hero: url(reglages.image_hero, '/images/accueil/banniere.jpg'),
+  about: url(reglages.image_apropos, '/images/accueil/parfums-femme.jpg'),
+  partage: SITE_URL + '/images/accueil/partage.jpg',
 };
+export const tileImage = (slug: Category) => url(reglages['tuile_' + slug.replace(/-/g, '_')], `/images/accueil/${slug}.jpg`);

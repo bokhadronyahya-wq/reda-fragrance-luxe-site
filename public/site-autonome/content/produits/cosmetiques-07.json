@@ -2,7 +2,6 @@
   "nom": "Huile corps 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sous_categorie": "Soins corps",
   "taille": "200 ml",
   "prix": 245,
   "en_stock": false,
@@ -12,5 +11,6 @@
   "visible": true,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notes_olfactives": "",
-  "image": "images/products/cosmetiques-07.jpg"
+  "image": "images/products/cosmetiques-07.jpg",
+  "galerie": []
 }

@@ -1,0 +1,16 @@
+{
+  "nom": "Format 10 ml Homme 01",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-homme",
+  "taille": "10 ml",
+  "prix": 80,
+  "en_stock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": true,
+  "visible": true,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notes_olfactives": "",
+  "image": "images/products/hommes-04.jpg",
+  "galerie": []
+}

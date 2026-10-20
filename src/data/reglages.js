@@ -1,17 +1,17 @@
 /* FICHIER GÉNÉRÉ AUTOMATIQUEMENT — ne pas modifier.
  * Modifiez les produits et textes depuis /admin. */
 globalThis.REGLAGES = {
- "hero_titre": "Reda Fragrance",
- "hero_sous_titre": "Redécouvrez l’art du parfum.",
- "hero_description": "Des fragrances qui vous ressemblent. Une signature qui ne ressemble qu’à vous.",
  "apropos_titre": "Plus qu’un parfum, une expression de soi.",
  "apropos_texte": "Un parfum révèle une personnalité, évoque un souvenir et accompagne les moments qui comptent.\n\nReda Fragrance vous invite à découvrir des fragrances adaptées à vos goûts et à votre style. Explorez un univers dédié à la parfumerie, où chacun peut trouver la fragrance qui lui ressemble et qui accompagne chaque occasion.",
  "cosmetiques_intro": "Soins délicats, essentiels de maquillage et accessoires : découvrez une autre facette de votre beauté.",
  "whatsapp": "212714103589",
  "instagram": "https://www.instagram.com/reda_fragrences",
- "image_hero": "images/hero.jpg",
- "image_hommes": "images/collection-hommes.jpg",
- "image_femmes": "images/collection-femmes.jpg",
- "image_cosmetiques": "images/collection-cosmetiques.jpg",
- "image_apropos": "images/about.jpg"
+ "image_hero": "images/accueil/banniere.jpg",
+ "image_apropos": "images/about.jpg",
+ "tuile_parfums_femme": "images/accueil/parfums-femme.jpg",
+ "tuile_parfums_homme": "images/accueil/parfums-homme.jpg",
+ "tuile_10ml_femme": "images/accueil/10ml-femme.jpg",
+ "tuile_10ml_homme": "images/accueil/10ml-homme.jpg",
+ "tuile_cosmetiques": "images/accueil/cosmetiques.jpg",
+ "tuile_maquillage": "images/accueil/maquillage.jpg"
 };
