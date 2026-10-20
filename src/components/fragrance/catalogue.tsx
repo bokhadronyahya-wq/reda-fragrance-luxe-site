@@ -1,19 +1,30 @@
 import { useState } from 'react';
-import { Search, SlidersHorizontal, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Search } from 'lucide-react';
+import { Link } from '@tanstack/react-router';
 import { ProductCard } from './product-card';
-import { products, labels, reglages, type Category } from '@/data/products';
-import { images } from '@/data/config';
+import { products, labels, categories, filterProducts, type Category, type Sort, type Stock } from '@/data/products';
 
 export function Catalogue({ category, initialQuery = '' }: { category?: Category; initialQuery?: string }) {
-  const [filter, setFilter] = useState<Category | 'tous'>(category || 'tous');
   const [q, setQ] = useState(initialQuery);
-  const [sort, setSort] = useState('nouveautes');
-  const [sub, setSub] = useState('Tous');
-  const introCosmetiques = String(reglages.cosmetiques_intro || 'Soins délicats, essentiels de maquillage et accessoires : découvrez une autre facette de votre beauté.');
-  const normalized = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-  const filtered = products.filter(p => (filter === 'tous' || p.categorie === filter) && p.nom.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().includes(normalized) && (p.categorie !== 'cosmetiques' || sub === 'Tous' || p.sousCategorie === sub)).sort((a,b) => sort === 'croissant' ? a.prix - b.prix : sort === 'decroissant' ? b.prix - a.prix : Number(b.nouveau) - Number(a.nouveau));
-  return <main id="contenu" className="catalogue-page"><div className="catalogue-intro page-width"><p className="eyebrow">L’UNIVERS REDA FRAGRANCE</p><h1>{category ? labels[category] : 'Notre catalogue'}<span className="gold-dot">.</span></h1><p>{category === 'cosmetiques' ? introCosmetiques : 'Découvrez la fragrance qui deviendra votre signature.'}</p></div><div className="page-width"><div className="catalogue-controls"><div className="filter-tabs" role="group" aria-label="Filtrer par collection">{(['tous','hommes','femmes','cosmetiques'] as const).map(c => <Button key={c} variant="ghost" className={filter === c ? 'filter-tab selected' : 'filter-tab'} onClick={() => { setFilter(c); setSub('Tous'); }}>{c === 'tous' ? 'Tous' : labels[c]}</Button>)}</div><div className="search-sort"><label className="catalogue-search"><Search size={17}/><input aria-label="Rechercher un produit par nom" placeholder="Rechercher un produit…" value={q} onChange={e => setQ(e.target.value)}/></label><label className="sort-select"><SlidersHorizontal size={15}/><span className="sr-only">Trier les produits</span><select value={sort} onChange={e => setSort(e.target.value)}><option value="nouveautes">Nouveautés</option><option value="croissant">Prix croissant</option><option value="decroissant">Prix décroissant</option></select></label></div></div><p className="result-count" aria-live="polite">{filtered.length} produit{filtered.length !== 1 ? 's' : ''}</p>
-    {(['hommes','femmes','cosmetiques'] as const).filter(c => filter === 'tous' || filter === c).map(c => { const list = filtered.filter(p => p.categorie === c); return <section className="catalogue-section" key={c}>{c === 'cosmetiques' ? <><div className="cosmetics-banner"><img src={images.cosmetiques} alt="Essentiels de maquillage et de soin sur fond clair" loading="lazy"/><div><p className="eyebrow">LE RITUEL BEAUTÉ</p><h2>Cosmétiques & Maquillage</h2><p>{introCosmetiques}</p><ArrowRight size={24}/></div></div><div className="subcategory-tabs" role="group" aria-label="Sous-catégories beauté">{['Tous','Soins visage','Maquillage','Soins corps','Accessoires'].map(s => <Button key={s} variant="outline" className={sub === s ? 'selected' : ''} onClick={() => setSub(s)}>{s}</Button>)}</div></> : <div className="catalogue-section-title"><h2>{labels[c]}</h2><span>{list.length} produit{list.length !== 1 ? 's' : ''}</span></div>}{list.length ? <div className="product-grid">{list.map(p => <ProductCard key={p.id} product={p}/>)}</div> : <p className="empty-results">Aucun produit ne correspond à votre recherche.</p>}</section>; })}
-  </div></main>;
+  const [sort, setSort] = useState<Sort>('nouveautes');
+  const [stock, setStock] = useState<Stock>('tous');
+  const list = filterProducts(products, { category, q, sort, stock });
+  return <main id="contenu" className="catalogue-page">
+    <div className="catalogue-intro page-width"><p className="eyebrow">{category ? 'COLLECTION' : 'TOUS NOS PRODUITS'}</p><h1>{category ? labels[category] : 'Catalogue'}<span className="gold-dot">.</span></h1></div>
+    <div className="page-width">
+      <nav className="filter-tabs" aria-label="Collections">
+        <Link to="/catalogue" className={!category ? 'filter-tab selected' : 'filter-tab'}>Tous</Link>
+        {categories.map(c => <Link key={c.slug} to="/collection/$slug" params={{ slug: c.slug }} className={category === c.slug ? 'filter-tab selected' : 'filter-tab'}>{c.label}</Link>)}
+      </nav>
+      <div className="catalogue-controls">
+        <label className="catalogue-search"><Search size={17}/><input aria-label="Rechercher un produit par nom" placeholder="Rechercher un produit…" value={q} onChange={e => setQ(e.target.value)}/></label>
+        <div className="search-sort">
+          <label className="sort-select"><span className="sr-only">Disponibilité</span><select value={stock} onChange={e => setStock(e.target.value as Stock)}><option value="tous">Disponibilité : toutes</option><option value="en-stock">En stock</option><option value="epuise">Épuisé</option></select></label>
+          <label className="sort-select"><span className="sr-only">Trier les produits</span><select value={sort} onChange={e => setSort(e.target.value as Sort)}><option value="nouveautes">Nouveautés</option><option value="croissant">Prix croissant</option><option value="decroissant">Prix décroissant</option></select></label>
+        </div>
+      </div>
+      <p className="result-count" aria-live="polite">{list.length} produit{list.length !== 1 ? 's' : ''}</p>
+      {list.length ? <div className="product-grid">{list.map(p => <ProductCard key={p.id} product={p}/>)}</div> : <p className="empty-results">Aucun produit ne correspond à votre recherche.</p>}
+    </div>
+  </main>;
 }
