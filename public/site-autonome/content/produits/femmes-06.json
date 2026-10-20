@@ -1,8 +1,7 @@
 {
   "nom": "Parfum Femme 06",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sous_categorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 650,
   "en_stock": true,
@@ -12,5 +11,6 @@
   "visible": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notes_olfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-06.jpg"
+  "image": "images/products/femmes-06.jpg",
+  "galerie": []
 }

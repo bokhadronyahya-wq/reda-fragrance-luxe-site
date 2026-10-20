@@ -1,8 +1,7 @@
 {
   "nom": "Palette 01",
   "marque": "Reda Fragrance",
-  "categorie": "cosmetiques",
-  "sous_categorie": "Maquillage",
+  "categorie": "maquillage",
   "taille": "3,5 g",
   "prix": 195,
   "en_stock": true,
@@ -12,5 +11,6 @@
   "visible": true,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notes_olfactives": "",
-  "image": "images/products/cosmetiques-05.jpg"
+  "image": "images/products/cosmetiques-05.jpg",
+  "galerie": []
 }

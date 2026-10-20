@@ -2,7 +2,6 @@
   "nom": "Sérum visage 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sous_categorie": "Soins visage",
   "taille": "30 ml",
   "prix": 120,
   "en_stock": true,
@@ -12,5 +11,6 @@
   "visible": true,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notes_olfactives": "",
-  "image": "images/products/cosmetiques-02.jpg"
+  "image": "images/products/cosmetiques-02.jpg",
+  "galerie": []
 }
