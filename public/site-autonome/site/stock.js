@@ -2,11 +2,106 @@
  * Modifiez les produits et textes depuis /admin. */
 globalThis.PRODUCTS = [
  {
+  "id": "10ml-femme-01",
+  "nom": "Format 10 ml Femme 01",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-femme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": true,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/femmes-04.jpg",
+  "galerie": []
+ },
+ {
+  "id": "10ml-femme-02",
+  "nom": "Format 10 ml Femme 02",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-femme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": false,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/femmes-05.jpg",
+  "galerie": []
+ },
+ {
+  "id": "10ml-femme-03",
+  "nom": "Format 10 ml Femme 03",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-femme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": false,
+  "quantite": 0,
+  "vedette": false,
+  "nouveau": false,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/femmes-06.jpg",
+  "galerie": []
+ },
+ {
+  "id": "10ml-homme-01",
+  "nom": "Format 10 ml Homme 01",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-homme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": true,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/hommes-04.jpg",
+  "galerie": []
+ },
+ {
+  "id": "10ml-homme-02",
+  "nom": "Format 10 ml Homme 02",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-homme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": true,
+  "quantite": 10,
+  "vedette": false,
+  "nouveau": false,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/hommes-05.jpg",
+  "galerie": []
+ },
+ {
+  "id": "10ml-homme-03",
+  "nom": "Format 10 ml Homme 03",
+  "marque": "Reda Fragrance",
+  "categorie": "10ml-homme",
+  "taille": "10 ml",
+  "prix": 80,
+  "enStock": false,
+  "quantite": 0,
+  "vedette": false,
+  "nouveau": false,
+  "description": "Un format voyage de démonstration à remplacer par la description de votre fragrance.",
+  "notesOlfactives": "",
+  "image": "images/products/hommes-06.jpg",
+  "galerie": []
+ },
+ {
   "id": "cosmetiques-01",
   "nom": "Rouge à lèvres 01",
   "marque": "Reda Fragrance",
-  "categorie": "cosmetiques",
-  "sousCategorie": "Maquillage",
+  "categorie": "maquillage",
   "taille": "3,5 g",
   "prix": 95,
   "enStock": true,
@@ -15,14 +110,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-01.jpg"
+  "image": "images/products/cosmetiques-01.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-02",
   "nom": "Sérum visage 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Soins visage",
   "taille": "30 ml",
   "prix": 120,
   "enStock": true,
@@ -31,14 +126,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-02.jpg"
+  "image": "images/products/cosmetiques-02.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-03",
   "nom": "Lait corps 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Soins corps",
   "taille": "200 ml",
   "prix": 145,
   "enStock": true,
@@ -47,14 +142,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-03.jpg"
+  "image": "images/products/cosmetiques-03.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-04",
   "nom": "Pinceau 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Accessoires",
   "taille": "1 pièce",
   "prix": 170,
   "enStock": false,
@@ -63,14 +158,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-04.jpg"
+  "image": "images/products/cosmetiques-04.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-05",
   "nom": "Palette 01",
   "marque": "Reda Fragrance",
-  "categorie": "cosmetiques",
-  "sousCategorie": "Maquillage",
+  "categorie": "maquillage",
   "taille": "3,5 g",
   "prix": 195,
   "enStock": true,
@@ -79,14 +174,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-05.jpg"
+  "image": "images/products/cosmetiques-05.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-06",
   "nom": "Crème visage 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Soins visage",
   "taille": "30 ml",
   "prix": 220,
   "enStock": true,
@@ -95,14 +190,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-06.jpg"
+  "image": "images/products/cosmetiques-06.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-07",
   "nom": "Huile corps 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Soins corps",
   "taille": "200 ml",
   "prix": 245,
   "enStock": false,
@@ -111,14 +206,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-07.jpg"
+  "image": "images/products/cosmetiques-07.jpg",
+  "galerie": []
  },
  {
   "id": "cosmetiques-08",
   "nom": "Trousse beauté 01",
   "marque": "Reda Fragrance",
   "categorie": "cosmetiques",
-  "sousCategorie": "Accessoires",
   "taille": "1 pièce",
   "prix": 270,
   "enStock": true,
@@ -127,14 +222,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un produit de démonstration à remplacer par la description de votre produit.",
   "notesOlfactives": "",
-  "image": "images/products/cosmetiques-08.jpg"
+  "image": "images/products/cosmetiques-08.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-01",
   "nom": "Parfum Femme 01",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 400,
   "enStock": true,
@@ -143,14 +238,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-01.jpg"
+  "image": "images/products/femmes-01.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-02",
   "nom": "Parfum Femme 02",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 450,
   "enStock": true,
@@ -159,14 +254,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-02.jpg"
+  "image": "images/products/femmes-02.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-03",
   "nom": "Parfum Femme 03",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 500,
   "enStock": true,
@@ -175,14 +270,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-03.jpg"
+  "image": "images/products/femmes-03.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-04",
   "nom": "Parfum Femme 04",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 550,
   "enStock": false,
@@ -191,14 +286,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-04.jpg"
+  "image": "images/products/femmes-04.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-05",
   "nom": "Parfum Femme 05",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 600,
   "enStock": true,
@@ -207,14 +302,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-05.jpg"
+  "image": "images/products/femmes-05.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-06",
   "nom": "Parfum Femme 06",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 650,
   "enStock": true,
@@ -223,14 +318,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-06.jpg"
+  "image": "images/products/femmes-06.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-07",
   "nom": "Parfum Femme 07",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 700,
   "enStock": false,
@@ -239,14 +334,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-07.jpg"
+  "image": "images/products/femmes-07.jpg",
+  "galerie": []
  },
  {
   "id": "femmes-08",
   "nom": "Parfum Femme 08",
   "marque": "Reda Fragrance",
-  "categorie": "femmes",
-  "sousCategorie": "",
+  "categorie": "parfums-femme",
   "taille": "100 ml",
   "prix": 750,
   "enStock": true,
@@ -255,14 +350,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/femmes-08.jpg"
+  "image": "images/products/femmes-08.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-01",
   "nom": "Parfum Homme 01",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 400,
   "enStock": true,
@@ -271,14 +366,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-01.jpg"
+  "image": "images/products/hommes-01.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-02",
   "nom": "Parfum Homme 02",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 450,
   "enStock": true,
@@ -287,14 +382,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-02.jpg"
+  "image": "images/products/hommes-02.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-03",
   "nom": "Parfum Homme 03",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 500,
   "enStock": true,
@@ -303,14 +398,14 @@ globalThis.PRODUCTS = [
   "nouveau": true,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-03.jpg"
+  "image": "images/products/hommes-03.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-04",
   "nom": "Parfum Homme 04",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 550,
   "enStock": false,
@@ -319,14 +414,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-04.jpg"
+  "image": "images/products/hommes-04.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-05",
   "nom": "Parfum Homme 05",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 600,
   "enStock": true,
@@ -335,14 +430,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-05.jpg"
+  "image": "images/products/hommes-05.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-06",
   "nom": "Parfum Homme 06",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 650,
   "enStock": true,
@@ -351,14 +446,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-06.jpg"
+  "image": "images/products/hommes-06.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-07",
   "nom": "Parfum Homme 07",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 700,
   "enStock": false,
@@ -367,14 +462,14 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-07.jpg"
+  "image": "images/products/hommes-07.jpg",
+  "galerie": []
  },
  {
   "id": "hommes-08",
   "nom": "Parfum Homme 08",
   "marque": "Reda Fragrance",
-  "categorie": "hommes",
-  "sousCategorie": "",
+  "categorie": "parfums-homme",
   "taille": "100 ml",
   "prix": 750,
   "enStock": true,
@@ -383,6 +478,7 @@ globalThis.PRODUCTS = [
   "nouveau": false,
   "description": "Un parfum de démonstration à remplacer par la description de votre fragrance.",
   "notesOlfactives": "Bergamote · Accord floral · Bois ambrés",
-  "image": "images/products/hommes-08.jpg"
+  "image": "images/products/hommes-08.jpg",
+  "galerie": []
  }
 ];

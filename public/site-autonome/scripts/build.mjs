@@ -15,7 +15,8 @@ const appData = join(root, '..', '..', 'src', 'data');
 const uploads = join(root, '..', '..', 'public', 'images', 'uploads');
 
 const clean = (path) => String(path || '').replace(/^\/+/, ''); // chemins relatifs : le site s’ouvre aussi hors ligne
-const CATEGORIES = ['hommes', 'femmes', 'cosmetiques'];
+const CATEGORIES = ['parfums-femme', 'parfums-homme', '10ml-femme', '10ml-homme', 'cosmetiques', 'maquillage'];
+const ANCIENNES = { hommes: 'parfums-homme', femmes: 'parfums-femme' };
 
 export function generate() {
   const products = readdirSync(dir)
@@ -27,8 +28,7 @@ export function generate() {
         id: file.replace(/\.json$/, ''),
         nom: p.nom || 'Produit',
         marque: p.marque || 'Reda Fragrance',
-        categorie: CATEGORIES.includes(p.categorie) ? p.categorie : 'hommes',
-        sousCategorie: p.sous_categorie || '',
+        categorie: CATEGORIES.includes(p.categorie) ? p.categorie : ANCIENNES[p.categorie] || 'parfums-femme',
         taille: p.taille || '',
         prix: Number(p.prix) || 0,
         enStock: p.en_stock !== false,
@@ -39,13 +39,14 @@ export function generate() {
         description: p.description || '',
         notesOlfactives: p.notes_olfactives || '',
         image: clean(p.image),
+        galerie: (Array.isArray(p.galerie) ? p.galerie : []).map((g) => clean(typeof g === 'string' ? g : g?.image)).filter(Boolean),
       };
     })
     .filter((p) => p.visible)
     .map(({ visible, ...p }) => p);
 
   const reglages = JSON.parse(readFileSync(join(root, 'content', 'reglages.json'), 'utf8'));
-  for (const key of Object.keys(reglages)) if (key.startsWith('image_')) reglages[key] = clean(reglages[key]);
+  for (const key of Object.keys(reglages)) if (key.startsWith('image_') || key.startsWith('tuile_')) reglages[key] = clean(reglages[key]);
 
   const header = '/* FICHIER GÉNÉRÉ AUTOMATIQUEMENT — ne pas modifier.\n * Modifiez les produits et textes depuis /admin. */\n';
   const stock = header + 'globalThis.PRODUCTS = ' + JSON.stringify(products, null, 1) + ';\n';
