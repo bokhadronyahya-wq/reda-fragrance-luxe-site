@@ -14,7 +14,7 @@ export function Header() {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const pathname = useRouterState({ select: s => s.location.pathname });
-  const nav = [{ to: '/', text: 'Accueil' }, { to: '/catalogue', text: 'Catalogue' }, { to: '/hommes', text: 'Hommes' }, { to: '/femmes', text: 'Femmes' }, { to: '/cosmetiques', text: 'Cosmétiques & Maquillage' }] as const;
+  const nav = [{ to: '/', text: 'Accueil' }, { to: '/catalogue', text: 'Catalogue' }] as const;
   function submit(e: React.FormEvent) { e.preventDefault(); navigate({ to: '/catalogue', search: { q: query } }); setOpen(false); setSearchOpen(false); }
   return <header className="site-header"><div className="header-inner">
     <Link to="/" className="wordmark" aria-label="Reda Fragrance, accueil"><span className="brand-mark">R<span>F</span></span><span>REDA<span className="wordmark-small">FRAGRANCE</span></span></Link>

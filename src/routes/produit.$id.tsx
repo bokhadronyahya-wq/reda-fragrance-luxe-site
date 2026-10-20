@@ -25,7 +25,7 @@ function Page() {
     <nav className="breadcrumb" aria-label="Fil d’Ariane"><Link to="/">Accueil</Link> / <Link to="/collection/$slug" params={{ slug: p.categorie }}>{labels[p.categorie]}</Link> / <span>{p.nom}</span></nav>
     <div className="product-layout">
       <div className="product-gallery">
-        <div className={available ? 'gallery-main' : 'gallery-main sold-out'}><ProductImage key={photos[current]} src={photos[current]} alt={`${p.nom}, ${p.taille}`} eager/></div>
+        <div className={available ? 'gallery-main' : 'gallery-main sold-out'}><ProductImage key={photos[current]} src={photos[current] ?? p.image} alt={`${p.nom}, ${p.taille}`} eager/></div>
         {photos.length > 1 && <div className="gallery-thumbs">{photos.map((src, i) => <button key={src + i} className={i === current ? 'selected' : ''} onClick={() => setCurrent(i)} aria-label={`Photo ${i + 1}`}><ProductImage src={src} alt=""/></button>)}</div>}
       </div>
       <div className="product-details">

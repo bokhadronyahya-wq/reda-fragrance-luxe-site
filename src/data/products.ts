@@ -34,7 +34,7 @@ export const isAvailable = (p: Product) => p.enStock && p.quantite > 0;
 export type Sort = 'nouveautes' | 'croissant' | 'decroissant';
 export type Stock = 'tous' | 'en-stock' | 'epuise';
 const norm = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
-export function filterProducts(list: Product[], o: { category?: Category; q?: string; stock?: Stock; sort?: Sort }) {
+export function filterProducts(list: Product[], o: { category?: Category | undefined; q?: string; stock?: Stock; sort?: Sort }) {
   const q = norm(o.q ?? '');
   return list
     .filter((p) => !o.category || p.categorie === o.category)
