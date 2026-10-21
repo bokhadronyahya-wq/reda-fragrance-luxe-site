@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useNavigate, useRouterState } from '@tanstack/react-router';
 import { ArrowUpRight, Instagram, Menu, Search, X, MessageCircle, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { instagram, whatsapp } from '@/data/products';
+import { categories, instagram, whatsapp } from '@/data/products';
 
 export function WhatsAppLink({ className = '', children }: { className?: string; children?: React.ReactNode }) {
   return <Button asChild className={className}><a href={whatsapp()} target="_blank" rel="noopener noreferrer"><MessageCircle size={17} />{children || 'Contactez-nous sur WhatsApp'}</a></Button>;
@@ -14,11 +14,17 @@ export function Header() {
   const [query, setQuery] = useState('');
   const navigate = useNavigate();
   const pathname = useRouterState({ select: s => s.location.pathname });
-  const nav = [{ to: '/', text: 'Accueil' }, { to: '/catalogue', text: 'Catalogue' }] as const;
+  const catalogueActif = pathname === '/catalogue' || pathname.startsWith('/collection');
   function submit(e: React.FormEvent) { e.preventDefault(); navigate({ to: '/catalogue', search: { q: query } }); setOpen(false); setSearchOpen(false); }
   return <header className="site-header"><div className="header-inner">
     <Link to="/" className="wordmark" aria-label="Reda Fragrance, accueil"><span className="brand-mark">R<span>F</span></span><span>REDA<span className="wordmark-small">FRAGRANCE</span></span></Link>
-    <nav className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">{nav.map(n => <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className={pathname === n.to ? 'nav-link active' : 'nav-link'}>{n.text}</Link>)}</nav>
+    <nav className={open ? 'main-nav is-open' : 'main-nav'} aria-label="Navigation principale">
+      <Link to="/" onClick={() => setOpen(false)} className={pathname === '/' ? 'nav-link active' : 'nav-link'}>Accueil</Link>
+      <div className="nav-dropdown">
+        <Link to="/catalogue" onClick={() => setOpen(false)} className={catalogueActif ? 'nav-link active' : 'nav-link'} aria-haspopup="true">Catalogue</Link>
+        <div className="dropdown-menu">{categories.map(c => <Link key={c.slug} to="/collection/$slug" params={{ slug: c.slug }} onClick={() => setOpen(false)} className={pathname === '/collection/' + c.slug ? 'active' : ''}>{c.label}</Link>)}</div>
+      </div>
+    </nav>
     <div className="header-tools"><Button variant="ghost" size="icon" aria-label="Rechercher un produit" onClick={() => setSearchOpen(!searchOpen)}><Search /></Button><Button asChild variant="ghost" size="icon" className="instagram-header"><a href={instagram} aria-label="Instagram Reda Fragrance" target="_blank" rel="noopener noreferrer"><Instagram /></a></Button><Button variant="ghost" size="icon" className="menu-toggle" aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</Button></div>
   </div>{searchOpen && <form className="header-search" onSubmit={submit}><Search size={18} /><input autoFocus aria-label="Rechercher par nom" placeholder="Rechercher un parfum, un soin…" value={query} onChange={e => setQuery(e.target.value)} /><Button type="submit">Rechercher</Button></form>}</header>;
 }
