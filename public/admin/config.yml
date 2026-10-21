@@ -37,9 +37,12 @@ collections:
     summary: "{{nom}} — {{prix}} DH ({{categorie}})"
     sortable_fields: [nom, prix, categorie]
     view_filters:
-      - { label: Hommes, field: categorie, pattern: hommes }
-      - { label: Femmes, field: categorie, pattern: femmes }
+      - { label: Parfums Femme, field: categorie, pattern: parfums-femme }
+      - { label: Parfums Homme, field: categorie, pattern: parfums-homme }
+      - { label: 10 ML Femme, field: categorie, pattern: 10ml-femme }
+      - { label: 10 ML Homme, field: categorie, pattern: 10ml-homme }
       - { label: Cosmétiques, field: categorie, pattern: cosmetiques }
+      - { label: Maquillage, field: categorie, pattern: maquillage }
       - { label: Épuisés, field: en_stock, pattern: false }
     fields:
       - { label: Nom, name: nom, widget: string }
@@ -48,14 +51,12 @@ collections:
         name: categorie
         widget: select
         options:
-          - { label: Hommes, value: hommes }
-          - { label: Femmes, value: femmes }
-          - { label: "Cosmétiques & Maquillage", value: cosmetiques }
-      - label: Sous-catégorie (cosmétiques uniquement)
-        name: sous_categorie
-        widget: select
-        required: false
-        options: ["", "Soins visage", "Maquillage", "Soins corps", "Accessoires"]
+          - { label: Parfums Femme, value: parfums-femme }
+          - { label: Parfums Homme, value: parfums-homme }
+          - { label: 10 ML Femme, value: 10ml-femme }
+          - { label: 10 ML Homme, value: 10ml-homme }
+          - { label: Cosmétiques, value: cosmetiques }
+          - { label: Maquillage, value: maquillage }
       - { label: "Taille (ex. 100 ml)", name: taille, widget: string }
       - { label: Prix en DH, name: prix, widget: number, value_type: int, min: 0 }
       - { label: En stock, name: en_stock, widget: boolean, default: true }
@@ -65,7 +66,12 @@ collections:
       - { label: "Visible sur le site (décochez pour masquer)", name: visible, widget: boolean, default: true }
       - { label: Description, name: description, widget: text }
       - { label: Notes olfactives (parfums), name: notes_olfactives, widget: string, required: false }
-      - { label: Photo, name: image, widget: image, required: false }
+      - { label: Photo principale, name: image, widget: image, required: false }
+      - label: Galerie (photos supplémentaires)
+        name: galerie
+        widget: list
+        required: false
+        field: { label: Photo, name: photo, widget: image }
 
   - name: reglages
     label: Réglages du site
@@ -74,16 +80,16 @@ collections:
         label: Textes, liens et images
         file: public/site-autonome/content/reglages.json
         fields:
-          - { label: Titre de la bannière, name: hero_titre, widget: string }
-          - { label: Sous-titre de la bannière, name: hero_sous_titre, widget: string }
-          - { label: Texte court de la bannière, name: hero_description, widget: text }
           - { label: Titre « À propos », name: apropos_titre, widget: string }
           - { label: "Texte « À propos » (laissez une ligne vide entre deux paragraphes)", name: apropos_texte, widget: text }
           - { label: Introduction de la section Cosmétiques, name: cosmetiques_intro, widget: text }
           - { label: "Numéro WhatsApp au format international (ex. 212714103589)", name: whatsapp, widget: string, pattern: ["^[0-9]{9,15}$", "Chiffres uniquement, sans + ni espaces"] }
           - { label: Lien Instagram, name: instagram, widget: string }
-          - { label: Image de la bannière, name: image_hero, widget: image }
-          - { label: Image collection Hommes, name: image_hommes, widget: image }
-          - { label: Image collection Femmes, name: image_femmes, widget: image }
-          - { label: Image collection Cosmétiques, name: image_cosmetiques, widget: image }
+          - { label: Bannière d’accueil (image large), name: image_hero, widget: image }
+          - { label: Tuile « Parfums Femme », name: tuile_parfums_femme, widget: image }
+          - { label: Tuile « Parfums Homme », name: tuile_parfums_homme, widget: image }
+          - { label: Tuile « 10 ML Femme », name: tuile_10ml_femme, widget: image }
+          - { label: Tuile « 10 ML Homme », name: tuile_10ml_homme, widget: image }
+          - { label: Tuile « Cosmétiques », name: tuile_cosmetiques, widget: image }
+          - { label: Tuile « Maquillage », name: tuile_maquillage, widget: image }
           - { label: Image « À propos », name: image_apropos, widget: image }
